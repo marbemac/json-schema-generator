@@ -476,9 +476,9 @@ diff@1.4.0:
   version "0.9.0"
   resolved "https://github.com/visionmedia/dox/tarball/master#77a580be1f81ef32b96a7688520761ff795e88a7"
   dependencies:
-    commander "~2.9.0"
+    commander "~2.20.0"
     jsdoctypeparser "^1.2.0"
-    markdown-it "~7.0.0"
+    markdown-it "~9.0.1"
 
 duplexer2@0.0.2:
   version "0.0.2"
@@ -860,9 +860,10 @@ gulp-concat@^2.4.1:
     through2 "^2.0.0"
     vinyl "^2.0.0"
 
-gulp-markdox@^0.1.0:
+gulp-markdox@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/gulp-markdox/-/gulp-markdox-0.1.2.tgz#09e94776cd689c40d94ab6379d1fd5669bc18502"
+  integrity sha1-CelHds1onEDZSrY3nR/VZpvBhQI=
   dependencies:
     async "^2.0.1"
     gulp-util "~3.0.7"
