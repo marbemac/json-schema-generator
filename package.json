@@ -9,10 +9,11 @@
     "type": "git",
     "url": "https://github.com/stoplightio/json-schema-generator"
   },
-  "directories": {
-    "test": "test"
-  },
-  "main": "./index.js",
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "main": "./lib/index.js",
   "bin": {
     "json-schema-generator": "./bin/cli.js"
   },
