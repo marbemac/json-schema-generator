@@ -17,6 +17,8 @@ var usageText = [
 		"means url; anything else is treated as path to a local file. ",
 		"If no input file is specified and stdin is provided, stdin is used."
 	].join('\n'),
+	minimist = require('minimist'),
+	argv = minimist(process.argv.slice(2)),
 	optimist = require('optimist')
 		.usage(usageText)
 		.wrap(84)
@@ -33,7 +35,7 @@ var usageText = [
 		.alias('force','f')
 		.describe('help', 'Show this help text.')
 		.alias('help', 'h'),
-	argv = optimist.argv;
+	argvOld = optimist.argv;
 
 /**
  * @see http://tools.ietf.org/html/draft-fge-json-schema-validation-00#page-13
