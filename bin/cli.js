@@ -10,30 +10,28 @@ var url = require('url'),
 	errorHandler = cliConsole.errorHandler;
 
 var usageText = [
-		//"Extract a json-schema from a json document.",
-		"Usage: $0 [<target>|--url <url>|--file <file>|--stdin]",
-		"",
-		"If <target> is specified, it is interpreted as follows: a protocol (like http://) ",
-		"means url; anything else is treated as path to a local file. ",
-		"If no input file is specified and stdin is provided, stdin is used."
-	].join('\n'),
-	optimist = require('optimist')
-		.usage(usageText)
-		.wrap(84)
-		.boolean(['pretty','force', 'stdin'])
-		.default('pretty', true)
-		.describe('stdin', 'Use stdin as input.')
-		.describe('url', 'Remote json document to use as input.')
-		.describe('file', 'Local json document to use as input.')
-		.describe('schemadir', 'Directory (or file, if ending with .json) where the schema will be stored.')
-		.alias('schemadir', 'o')
-		.describe('jsondir', 'Directory (or file, if ending with .json) where the source document is copied to. Useful with --url.')
-		.describe('pretty', 'Whether to use pretty json format. Use --no-pretty for false.')
-		.describe('force', 'If a destination file already exists, overwrite it.')
-		.alias('force','f')
-		.describe('help', 'Show this help text.')
-		.alias('help', 'h'),
-	argv = optimist.argv;
+	//"Extract a json-schema from a json document.",
+	"If <target> is specified, it is interpreted as follows: a protocol (like http://) ",
+	"means url; anything else is treated as path to a local file. ",
+	"If no input file is specified and stdin is provided, stdin is used.",
+	"",
+	"Options:",
+	"  --stdin          Use stdin as input.",
+	"  --url            Remote json document to use as input.",
+	"  --file           Local json document to use as input.",
+	"  --schemadir, -o  Directory (or file, if ending with .json) where the schema will be stored.",
+	"  --jsondir        Directory (or file, if ending with .json) where the source document is copied to. Useful with --url.",
+	"  --pretty         Whether to use pretty json format. Use --no-pretty for false. Default True.",
+	"  --force, -f      If a destination file already exists, overwrite it.",
+	"  --help, -h       Show this help text."
+].join('\n'),
+	minimist = require('minimist'),
+	argv = minimist(process.argv.slice(2),
+		{
+			boolean: ['pretty', 'force', 'stdin'],
+			default: {'pretty': true},
+			alias: {'force': 'f', 'help': 'h', 'schemadir': 'o'},
+		});
 
 /**
  * @see http://tools.ietf.org/html/draft-fge-json-schema-validation-00#page-13
@@ -113,7 +111,7 @@ function createConfig(argv) {
 			case "h":
 			case "help":
 				// You asked for it, so stdout it is.
-				stdout(optimist.help());
+				stdout(usageText);
 				process.exit(0);
 				break;
 		}
@@ -147,7 +145,7 @@ var config = createConfig(argv);
 
 // Cannot resolve without an input specification
 if (!config.src.type) {
-	errorHandler('Please specify a local file (path) or a URL of a JSON document' + '\n\n' + optimist.help());
+	errorHandler('Please specify a local file (path) or a URL of a JSON document' + '\n\n' + usageText);
 }
 
 // Don't load this unless clearly necessary

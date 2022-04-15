@@ -20,7 +20,7 @@
   "dependencies": {
     "json-promise": "1.1.x",
     "mkdirp": "0.5.x",
-    "optimist": "0.6.x",
+    "minimist": "1.2.6",
     "pretty-data": "0.40.x",
     "request": "2.x.x"
   },
