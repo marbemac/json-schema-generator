@@ -1,6 +1,6 @@
 {
   "name": "@stoplight/json-schema-generator",
-  "version": "2.0.3",
+  "version": "1.0.1",
   "description": "JSON schema generator based on draft-v4.",
   "homepage": "https://github.com/stoplightio/json-schema-generator",
   "bugs": "https://github.com/stoplightio/json-schema-generator/issues",
@@ -18,20 +18,20 @@
     "json-schema-generator": "./bin/cli.js"
   },
   "dependencies": {
-    "json-promise": "1.1.x",
-    "mkdirp": "0.5.x",
-    "minimist": "1.2.6",
-    "pretty-data": "0.40.x",
-    "request": "2.x.x"
+    "json-promise": "^1.1.8",
+    "mkdirp": "^1.0.4",
+    "minimist": "^1.2.6",
+    "node-fetch": "^2.6.7",
+    "pretty-data": "^0.40.0"
   },
   "devDependencies": {
-    "@stoplight/scripts": "^8.2.1",
-    "chai": "^1.9.2",
-    "chai-json-schema": "^1.1.0",
-    "coveralls": "^2.11.2",
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "mocha": "^8.1.3"
+    "@stoplight/scripts": "^9.2.0",
+    "chai": "^4.3.6",
+    "chai-json-schema": "^1.5.1",
+    "coveralls": "^3.1.1",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "mocha": "^9.2.2"
   },
   "scripts": {
     "test": "mocha",
