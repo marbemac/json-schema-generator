@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-console.log('Node');
-
 var url = require('url'),
 	path = require('path'),
 	cliConsole = require('../lib/cli/console'),
